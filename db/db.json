@@ -1,0 +1,204 @@
+{
+  "git": [
+      {
+          "category": "Initialization",
+          "commands": [
+              {
+                  "command": "git init",
+                  "description": "Initializes a git repository in your current directory"
+              },
+              {
+                  "command": "git clone ssh://git@github.com/[username]/[repository-name].git",
+                  "description": "Creates a local copy of a remote repository"
+              },
+              {
+                  "command": "git fork",
+                  "description": "Creates a copy of a remote repository on your GitHub account"
+              }
+          ]
+      },
+      {
+          "category": "Configure Git",
+          "commands": [
+              {
+                  "command": "git config --global user.name \"Your Name\"",
+                  "description": "Sets the name of the author of the commit"
+              },
+              {
+                  "command": "git config --global user.email \"Your Email\"",
+                  "description": "Sets the email of the author of the commit"
+              }
+          ]
+      },
+      {
+          "category": "Checking Status, Changes and Logs",
+          "commands": [
+              {
+                  "command": "git status",
+                  "description": "Shows the status of the files in the working directory"
+              },
+              {
+                  "command": "git diff [source branch] [target branch]",
+                  "description": "Preview changes before merging"
+              },
+              {
+                  "command": "git log",
+                  "description": "Shows the commit history of the repository"
+              },
+              {
+                  "command": "git log --oneline",
+                  "description": "Shows the commit history of the repository"
+              }
+          ]
+      },
+      {
+          "category": "Adding and Committing Changes",
+          "commands": [
+              {
+                  "command": "git add [file-name.txt]",
+                  "description": "Stages the changes made in the file for commit"
+              },
+              {
+                  "command": "git add *",
+                  "description": "Add all new and changed files to the staging area for commit (excluding file deletions)"
+              },
+              {
+                  "command": "git add -A",
+                  "description": "Add all new and changed files to the staging area for commit"
+              },
+              {
+                  "command": "git commit -m \"[commit message]\"",
+                  "description": "Saves the changes made in the working directory"
+              },
+              {
+                  "command": "git rm -r [file-name.txt]",
+                  "description": "Remove a file or folder"
+              }
+          ]
+      },
+      {
+          "category": "Branching and Merging",
+          "commands": [
+              {
+                  "command": "git branch",
+                  "description": "Lists branches (asterix denotes the current branch)"
+              },
+              {
+                  "command": "git branch -a",
+                  "description": "Lists out all branches (local and remote)"
+              },
+              {
+                  "command": "git branch [branch-name]",
+                  "description": "Create a new branch"
+              },
+              {
+                  "command": "git branch -d [branch-name]",
+                  "description": "Delete a branch"
+              },
+              {
+                  "command": "git push origin --delete [branch-name]",
+                  "description": "Delete a remote branch"
+              },
+              {
+                  "command": "git checkout -b [branch-name]",
+                  "description": "Create a new branch and switch to it"
+              },
+              {
+                  "command": "git checkout -b [branch name] origin/[branch name]",
+                  "description": "Clone a remote branch and switch to it"
+              },
+              {
+                  "command": "git branch -m [old branch name] [new branch name]",
+                  "description": "Rename a local branch"
+              },
+              {
+                  "command": "git checkout [branch-name]",
+                  "description": "Switches to a new branch"
+              },
+              {
+                  "command": "git checkout -",
+                  "description": "Switch to the branch last checked out"
+              },
+              {
+                  "command": "git checkout -- [file-name.txt]",
+                  "description": "Discard changes to a file"
+              },
+              {
+                  "command": "git merge [branch name]",
+                  "description": "Merge a branch into the active branch"
+              },
+              {
+                  "command": "git merge [source branch] [target branch]",
+                  "description": "Merge a branch into a target branch"
+              },
+              {
+                  "command": "git merge --ff [branch name]",
+                  "description": "Merge a branch into the active branch, and overwrite local changes"
+              },
+              {
+                  "command": "git merge --no-ff [branch name]",
+                  "description": "Merge a branch into the active branch, but do not overwrite local changes"
+              },
+              {
+                  "command": "git stash",
+                  "description": "Stash changes in a dirty working directory"
+              },
+              {
+                  "command": "git stash clear",
+                  "description": "Remove all stashed entries"
+              }
+          ]
+      },
+      {
+          "category": "Sharing and Updating",
+          "commands": [
+              {
+                  "command": "git push origin [branch name]",
+                  "description": "Push a branch to your remote repository"
+              },
+              {
+                  "command": "git push -u origin [branch name]",
+                  "description": "Push changes to remote repository (and remember the branch)"
+              },
+              {
+                  "command": "git push",
+                  "description": "Push changes to remote repository (remembered branch)"
+              },
+              {
+                  "command": "git pull",
+                  "description": "Update local repository to the latest commit"
+              },
+              {
+                  "command": "git pull origin [branch name]",
+                  "description": "Pull changes from remote repository"
+              },
+              {
+                  "command": "git remote add origin ssh://git@github.com/[username]/[repository-name].git",
+                  "description": "Add a remote repository"
+              },
+              {
+                  "command": "git remote set-url origin ssh://git@github.com/[username]/[repository-name].git",
+                  "description": "Set a repository's origin branch to SSH"
+              }
+          ]
+      },
+      {
+          "category": "Undo Changes",
+          "commands": [
+              {
+                  "command": "git reset [file]",
+                  "description": "Unstage changes for a specified file"
+
+              },
+              {
+                  "command": "git reset --hard HEAD",
+                  "description": "Discards all local changes"
+              },
+              {
+                  "command": "git revert [commit-hash]",
+                  "description": "Creates a new commit that undoes changes in a previous commit"
+              }
+          ]
+      }
+  ]
+}
