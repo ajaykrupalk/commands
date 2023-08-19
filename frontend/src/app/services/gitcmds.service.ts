@@ -12,7 +12,7 @@ export class GitcmdsService {
 
   getGitCmds(): Observable<Git[]> {
     return this.http.get<Git[]>(
-      'http://localhost:3000/git'
+      'http://localhost:5000/git'
     );
   }
 }

@@ -1,17 +1,20 @@
 {
   "dependencies": {
+    "@vercel/node": "^2.15.10",
     "json-server": "^0.17.3"
   },
   "name": "db",
   "version": "1.0.0",
   "main": "server.js",
-  "devDependencies": {},
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "json-server --watch db.json"
   },
   "keywords": [],
+  "engines": {
+    "node": ">=14.20.1"
+  },
   "author": "",
   "license": "ISC",
   "description": ""
