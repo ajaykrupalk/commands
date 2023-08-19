@@ -12,11 +12,13 @@ import copy from 'copy-to-clipboard';
 export class GitcmdComponent implements OnInit {
   git: Git[] = [];
   isCopiedMap: { [key: string]: boolean } = {};
+  searchQuery: string = '';
+  filteredGitData: any[] = [];
 
   constructor(private gitService: GitcmdsService) { }
 
   ngOnInit() {
-    console.log('Git',this.git);
+    console.log('Git', this.git);
     this.gitService.getGitCmds().subscribe(response => {
       this.git = response;
     }, error => {
@@ -27,8 +29,26 @@ export class GitcmdComponent implements OnInit {
   copyToClipboard(cmd: string) {
     this.isCopiedMap[cmd] = true;
     copy(cmd)
-    interval(1500).subscribe(()=>{
+    interval(1500).subscribe(() => {
       this.isCopiedMap[cmd] = false;
     })
+  }
+
+  onSearchChange(): void {
+    const searchTerm = this.searchQuery.toLowerCase();
+
+    const filteredCategories = this.git.map(category => {
+      const filteredCommands = category.commands.filter(command =>
+        command.command.toLowerCase().includes(searchTerm) ||
+        command.description.toLowerCase().includes(searchTerm)
+      );
+
+      return {
+        ...category,
+        commands: filteredCommands
+      };
+    }).filter(category => category.commands.length > 0);
+
+    this.filteredGitData = filteredCategories;
   }
 }

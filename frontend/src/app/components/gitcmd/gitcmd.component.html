@@ -1,9 +1,29 @@
-<div *ngFor="let g of git" class="p-3 dark:text-white dark:bg-slate-800">
+<div class="flex justify-center">
+    <div class="w-96 p-3">
+        <form class="flex justify-center items-center">
+            <label for="simple-search" class="sr-only">Search</label>
+            <div class="relative w-full">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                        fill="none" viewBox="0 0 18 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2" />
+                    </svg>
+                </div>
+                <input [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" type="text" id="simple-search" name="searchQuery"
+                    class="outline-none bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Search git command ..." required>
+            </div>
+        </form>
+    </div>
+</div>
+<div *ngFor="let g of filteredGitData.length > 0 ? filteredGitData : git" class="p-3 dark:text-white dark:bg-slate-800">
     <h3 class="text-2xl font-medium">{{g.category}}</h3>
     <ul *ngFor="let c of g.commands">
-        <li class="flex flex-row flex-wrap gap-2 p-3 text-sm font-mono items-baseline">
+        <li class="flex flex-wrap gap-2 p-3 text-sm font-mono items-baseline">
             <button (click)="copyToClipboard(c.command)" class="fill-slate-700 dark:fill-white">
-                <svg *ngIf="!isCopiedMap[c.command]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 384 512" class="hover:fill-slate-300">
+                <svg *ngIf="!isCopiedMap[c.command]" xmlns="http://www.w3.org/2000/svg" height="1em"
+                    viewBox="0 0 384 512" class="hover:fill-slate-300">
                     <path
                         d="M280 64h40c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128C0 92.7 28.7 64 64 64h40 9.6C121 27.5 153.3 0 192 0s71 27.5 78.4 64H280zM64 112c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16H320c8.8 0 16-7.2 16-16V128c0-8.8-7.2-16-16-16H304v24c0 13.3-10.7 24-24 24H192 104c-13.3 0-24-10.7-24-24V112H64zm128-8a24 24 0 1 0 0-48 24 24 0 1 0 0 48z" />
                 </svg>

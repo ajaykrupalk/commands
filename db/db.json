@@ -89,7 +89,7 @@
               },
               {
                   "command": "git branch [branch-name]",
-                  "description": "Create a new branch"
+                  "description": "Create a branch"
               },
               {
                   "command": "git branch -d [branch-name]",
